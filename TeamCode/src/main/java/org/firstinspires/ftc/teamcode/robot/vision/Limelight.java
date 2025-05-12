@@ -23,7 +23,7 @@ public class Limelight  extends OpMode {
     @Override
     public void init() {
         limelight = hardwareMap.get(Limelight3A.class, HardwareNames.limelight);
-        limelight.setPollRateHz(100); // Isso define quantas vezes pedimos dados ao Limelight (100 vezes por segundo)
+        limelight.setPollRateHz(100); // Isso define quantas vexes pedimos dados ao Limelight (100 vezes por segundo)
         limelight.start(); // Isso diz ao Limelight para começar a procurar!
 
 

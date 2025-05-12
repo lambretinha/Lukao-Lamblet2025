@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.vision;
+package org.firstinspires.ftc.teamcode.common.tests;
 
 import android.annotation.SuppressLint;
 
@@ -91,9 +91,7 @@ public class Limelight  extends OpMode {
             }
 
         }
-        if(gamepad1.a){
-            limelight.captureSnapshot("auto_pov_10s");
-        }
     }
 }
+
 

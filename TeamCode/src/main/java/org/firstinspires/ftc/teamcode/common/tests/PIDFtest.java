@@ -2,9 +2,7 @@ package org.firstinspires.ftc.teamcode.common.tests;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
-import com.arcrobotics.ftclib.controller.PController;
 import com.arcrobotics.ftclib.controller.PIDController;
-import com.arcrobotics.ftclib.controller.PIDFController;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -23,16 +21,29 @@ public class PIDFtest extends OpMode {
 
     @Override
     public void init(){
+
         controller = new PIDController(p, i, d);
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
-        motorLinear = hardwareMap(DcMotorEx.class "motorLinear");
-
+        motorLinear = hardwareMap.get(DcMotorEx.class, "motorLinear");
 
     }
 
     @Override
     public void loop(){
 
+        controller.setPID(p, i, d);
+
+        double posLinear = motorLinear.getCurrentPosition();
+        double pid = controller.calculate(posLinear, target);
+        double ff = Math.cos(Math.toRadians(target / posLinear));
+
+        double power = pid + ff;
+
+        motorLinear.setPower(power);
+
+        telemetry.addData("pos", posLinear);
+        telemetry.addData("target", target);
+        telemetry.update();
     }
 }

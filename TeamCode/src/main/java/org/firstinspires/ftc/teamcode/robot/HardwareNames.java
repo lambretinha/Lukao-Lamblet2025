@@ -12,6 +12,7 @@ public final class HardwareNames {
             par0 = "rightBack",
             par1 = "rightFront",
             perp = "leftFront",
+            // comentario de exemplo
     /**************************************************
      *                  Motores Chassi                *
      **************************************************/

@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @TeleOp (name = "Limelight Teste")
-public class Limelight  extends OpMode {
+public class LimelightTest  extends OpMode {
     Limelight3A limelight;
     LLResultTypes.FiducialResult fiducialResult;
     Pose3D botPose3d;

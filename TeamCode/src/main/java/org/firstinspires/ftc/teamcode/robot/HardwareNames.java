@@ -12,7 +12,6 @@ public final class HardwareNames {
             par0 = "rightBack",
             par1 = "rightFront",
             perp = "leftFront",
-            // comentario de exemplo
     /**************************************************
      *                  Motores Chassi                *
      **************************************************/
@@ -36,47 +35,43 @@ public final class HardwareNames {
 
     /**************************************************
      *              DcMotors Subsistemas               *
-     **************************************************/   /* Motores Vertex */
+     **************************************************/
             verticalR            = "verticalr",
             verticalL            = "verticall",
             bracoGarraSuperior   = "b",
             SugadorMotorInferior = "porta3e",
     /**************************************************
      *              Servo Subsistemas Pinça           *
-     **************************************************/   /* Motores Vertex */
+     **************************************************/
 
-            horizontalSuperiorServo = "porta2c",
-            horizontalInferiorMotor = "porta2e",
-            horizontalInferiorServo = "porta5",
-            bracoGarraSuperiorServo   = "porta3c",//todo esse
+            horizontalSuperiorServo   = "porta2c",
+            horizontalInferiorMotor   = "porta2e",
+            horizontalInferiorServo   = "porta5",
+            bracoGarraSuperiorServo   = "porta3c",
 
-            bracoGarraInferiorServo = "porta0",
+            bracoGarraInferiorServo   = "porta0",
             rotacaoGarraInferiorServo = "porta2",
 
-            rotacaoGarraSuperiorServo = "porta1",//todo esse
+            rotacaoGarraSuperiorServo  = "porta1",
 
             angulacaoGarraInferiorServo = "porta5",
 
-            angulacaoGarraSuperiorServo = "porta1c",//todo esse
+            angulacaoGarraSuperiorServo = "porta1c",
 
-            aberturaGarraInferiorServo = "porta3",
+            aberturaGarraInferiorServo  = "porta3",
 
-            aberturaGarraSuperiorServo = "porta4c", //todo esse
+            aberturaGarraSuperiorServo  = "porta4c",
 
     /**************************************************
-     *              Servo Subsistemas Sugar               *
+     *            Servo Subsistemas Sugar             *
      **************************************************/
 
-            angulacaoSugarServo = "porta5",//todo esse
-            alcapaoSugarServo = "porta2",//todo esse
-
-    /**************************************************
-     *                 Servo-motores                  *
-     **************************************************/
+            angulacaoSugarServo = "porta5",
+            alcapaoSugarServo = "porta2",
 
 
     /**************************************************
-     *                 TroughBore                  *
+     *                   TroughBore                   *
      **************************************************/
             horizontalSuperior    = "braco",
             getHorizontalInferior  = "braco";

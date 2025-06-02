@@ -3,10 +3,12 @@ package org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.teamcode.robot.HardwareNames;
+
 public class LinearHorizontal {
 
-    DcMotorEx motor;
+    DcMotorEx motorHorizontal;
     public  LinearHorizontal(HardwareMap hardwareMap){
-        motor = hardwareMap.get(DcMotorEx.class, "motorHorizontal");
+        motorHorizontal = hardwareMap.get(DcMotorEx.class, HardwareNames.horizontal);
     }
 }

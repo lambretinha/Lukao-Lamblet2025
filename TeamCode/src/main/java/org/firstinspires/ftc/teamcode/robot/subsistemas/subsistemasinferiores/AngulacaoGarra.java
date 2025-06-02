@@ -5,11 +5,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.robot.HardwareNames;
 
-public class BracoGarra {
+public class AngulacaoGarra {
 
-    Servo servoBracoGarra;
+    Servo servoAngularGarra;
 
-    public BracoGarra(HardwareMap hardwareMap){
-        servoBracoGarra = hardwareMap.get(Servo.class, HardwareNames.angulacaoBracoGarra);
+    public AngulacaoGarra(HardwareMap hardwareMap){
+        servoAngularGarra = hardwareMap.get(Servo.class, HardwareNames.angulacaoGarra);
     }
 }

@@ -6,6 +6,9 @@ import com.arcrobotics.ftclib.controller.PIDController;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.teamcode.robot.HardwareNames;
 
 @TeleOp
 public class PIDFtest extends OpMode {
@@ -25,7 +28,7 @@ public class PIDFtest extends OpMode {
         controller = new PIDController(p, i, d);
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
-        motorLinear = hardwareMap.get(DcMotorEx.class, "motorLinear");
+        motorLinear = hardwareMap.get(DcMotorEx.class, HardwareNames.vertical);
 
     }
 

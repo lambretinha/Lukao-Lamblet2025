@@ -9,70 +9,48 @@ public final class HardwareNames {
             /**************************************************
              *                  Rodas Mortas                   *
              **************************************************/
-            par0 = "rightBack",
-            par1 = "rightFront",
-            perp = "leftFront",
-    /**************************************************
-     *                  Motores Chassi                *
-     **************************************************/
-            rightFront =  "rightFront",
-            leftFront =   "leftFront",
-            rightBack =   "rightBack",
-            leftBack =    "leftBack",
-    /**************************************************
-     *                  Sensores                       *
-     **************************************************/
-            distanceSensorL      = "sensorporta3",
-            distanceSensorR      = "sensorPorta2",
-            colorSensor1         = "I2Cporta1",
-            colorSensor2         = "I2Cporta2",
-            touchSensor          = "sensorToque",
+                par0 = "rightBack",
+                par1 = "rightFront",
+                perp = "leftFront",
 
-    /**************************************************
-     *         Visão Computacional / Cameras          *
-     **************************************************/
-            limelight            =  "limelight",
+            /**************************************************
+             *                  Motores Chassi                *
+            **************************************************/
 
-    /**************************************************
-     *              DcMotors Subsistemas               *
-     **************************************************/
-            verticalR            = "verticalr",
-            verticalL            = "verticall",
-            bracoGarraSuperior   = "b",
-            SugadorMotorInferior = "porta3e",
-    /**************************************************
-     *              Servo Subsistemas Pinça           *
-     **************************************************/
+                rightFront =  "rightFront",
+                leftFront =   "leftFront",
+                rightBack =   "rightBack",
+                leftBack =    "leftBack",
 
-            horizontalSuperiorServo   = "porta2c",
-            horizontalInferiorMotor   = "porta2e",
-            horizontalInferiorServo   = "porta5",
-            bracoGarraSuperiorServo   = "porta3c",
+            /**************************************************
+             *                  Sensores                       *
+            **************************************************/
 
-            bracoGarraInferiorServo   = "porta0",
-            rotacaoGarraInferiorServo = "porta2",
+                //colorSensor1        = "I2Cporta1",
 
-            rotacaoGarraSuperiorServo  = "porta1",
+            /**************************************************
+            *         Visão Computacional / Cameras          *
+            **************************************************/
+                limelight            =  "limelight",
 
-            angulacaoGarraInferiorServo = "porta5",
+            /**************************************************
+            *              DcMotors Subsistemas               *
+            **************************************************/
+                vertical            = "vertical",
+                horizontal          = "horizontal",
 
-            angulacaoGarraSuperiorServo = "porta1c",
+            /**************************************************
+            *              Servos Intake e Outtake            *
+            **************************************************/
 
-            aberturaGarraInferiorServo  = "porta3",
+                aberturaGarra   = "porta0",
 
-            aberturaGarraSuperiorServo  = "porta4c",
+                angulacaoGarra = "porta2",
 
-    /**************************************************
-     *            Servo Subsistemas Sugar             *
-     **************************************************/
+                angulacaoBracoGarra = "porta1",
 
-            angulacaoSugarServo = "porta5",
-            alcapaoSugarServo = "porta2",
+                angulacaoCopinho = "porta1c",
 
+                angulacaoBracoCopinho = "porta3";
 
-    /**************************************************
-     *                   TroughBore                   *
-     **************************************************/
-            horizontalSuperior    = "braco",
-            getHorizontalInferior  = "braco";
 }

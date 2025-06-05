@@ -35,6 +35,8 @@ public class Teleop extends OpMode {
         strafe = gamepad1.left_stick_x;
         turn = gamepad1.right_stick_x;
 
+        //commita plmds
+
         leftBack.setPower(drive + turn + strafe);
         rightBack.setPower(drive - turn + strafe);
         leftFront.setPower(drive + turn + strafe);

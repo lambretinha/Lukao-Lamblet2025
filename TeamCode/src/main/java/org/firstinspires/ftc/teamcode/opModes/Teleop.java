@@ -15,6 +15,7 @@ import org.firstinspires.ftc.teamcode.robot.HardwareNames;
 public class Teleop extends OpMode {
 
     DcMotor leftFront, leftBack, rightFront, rightBack;
+    double drive, strafe, turn;
 
     @Override
     public void init() {
@@ -30,72 +31,15 @@ public class Teleop extends OpMode {
 
     @Override
     public void loop() {
+        drive = -gamepad1.left_stick_y;
+        strafe = -gamepad1.left_stick_x;
+        turn = -gamepad1.right_stick_y;
 
-        if (gamepad1.dpad_up){
-            leftBack.setPower(0.7);
-            rightBack.setPower(0.7);
-            leftFront.setPower(0.7);
-            rightFront.setPower(0.7);
-        } else {
-            leftBack.setPower(0);
-            rightBack.setPower(0);
-            leftFront.setPower(0);
-            rightFront.setPower(0);
-        }
+        leftBack.setPower(drive - strafe + turn);
+        rightBack.setPower(drive + strafe - turn);
+        leftFront.setPower(drive + strafe + turn);
+        rightFront.setPower(drive - strafe - turn);
 
-        if (gamepad1.dpad_down){
-            leftBack.setPower(-0.7);
-            rightBack.setPower(-0.7);
-            leftFront.setPower(-0.7);
-            rightFront.setPower(-0.7);
-        } else {
-            leftBack.setPower(0);
-            rightBack.setPower(0);
-            leftFront.setPower(0);
-            rightFront.setPower(0);
-        }
-
-        if (gamepad1.dpad_left){
-            leftBack.setPower(0.7);
-            rightBack.setPower(-0.7);
-            leftFront.setPower(-0.7);
-            rightFront.setPower(0.7);
-        } else {
-            leftBack.setPower(0);
-            rightBack.setPower(0);
-            leftFront.setPower(0);
-            rightFront.setPower(0);
-        }
-
-        if (gamepad1.dpad_right){
-            leftBack.setPower(-0.7);
-            rightBack.setPower(0.7);
-            leftFront.setPower(0.7);
-            rightFront.setPower(-0.7);
-        } else {
-            leftBack.setPower(0);
-            rightBack.setPower(0);
-            leftFront.setPower(0);
-            rightFront.setPower(0);
-        }
-        double strafe = gamepad1.left_stick_x;
-
-        leftBack.setPower(strafe);
-        rightBack.setPower(strafe);
-        leftFront.setPower(strafe);
-        rightFront.setPower(strafe);
-
-        double sla = gamepad1.left_stick_y;
-
-        leftBack.setPower(-sla);
-        rightBack.setPower(-sla);
-        leftFront.setPower(-sla);
-        rightFront.setPower(-sla);
-
-        leftBack.setPower(sla);
-        rightBack.setPower(sla);
-        leftFront.setPower(sla);
-        rightFront.setPower(sla);
 
     }
 

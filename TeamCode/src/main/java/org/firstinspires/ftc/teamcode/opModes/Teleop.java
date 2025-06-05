@@ -33,12 +33,12 @@ public class Teleop extends OpMode {
     public void loop() {
         drive = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
-        turn = gamepad1.right_stick_y;
+        turn = gamepad1.right_stick_x;
 
-        leftBack.setPower(drive - strafe + turn);
-        rightBack.setPower(drive + strafe - turn);
-        leftFront.setPower(drive + strafe + turn);
-        rightFront.setPower(drive - strafe - turn);
+        leftBack.setPower(drive + turn + strafe);
+        rightBack.setPower(drive - turn + strafe);
+        leftFront.setPower(drive + turn + strafe);
+        rightFront.setPower(drive - turn - strafe);
 
 
     }

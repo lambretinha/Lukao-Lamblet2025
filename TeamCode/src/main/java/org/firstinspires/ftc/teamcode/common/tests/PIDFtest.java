@@ -17,8 +17,8 @@ public class PIDFtest extends OpMode {
 
     public static double p = 0, i = 0, d = 0;
     public static double f = 0;
-
     public static int target = 0;
+
 
     private DcMotorEx motorLinear;
 

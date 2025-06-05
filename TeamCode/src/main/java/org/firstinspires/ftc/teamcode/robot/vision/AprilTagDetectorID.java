@@ -17,7 +17,7 @@ public class AprilTagDetectorID {
 
     public int detectAprilTagId() {
         LLResult result = limelight.getLatestResult();
-        int id = 24;
+        int id = 404;
         if (result != null && result.isValid()) {
             List<LLResultTypes.FiducialResult> fiducials = result.getFiducialResults();
             id = fiducials.get(0).getFiducialId();

@@ -9,6 +9,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.robot.HardwareNames;
+import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.SubsistemasSuperiores;
+import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.SubsistemasInferiores;
 
 @TeleOp(name="Teleop mimindo")
 @Config
@@ -16,6 +18,9 @@ public class Teleop extends OpMode {
 
     DcMotor leftFront, leftBack, rightFront, rightBack;
     double drive, strafe, turn;
+
+    SubsistemasInferiores subsistemasInferiores;
+    SubsistemasSuperiores subsistemasSuperiores;
 
     @Override
     public void init() {
@@ -31,19 +36,21 @@ public class Teleop extends OpMode {
 
     @Override
     public void loop() {
+
         drive = -gamepad1.left_stick_y;
         strafe = gamepad1.left_stick_x;
         turn = gamepad1.right_stick_x;
 
-        //commita plmds
+        leftFront.setPower(drive + strafe + turn);
+        rightFront.setPower(drive - strafe - turn);
+        leftBack.setPower(drive - strafe + turn);
+        rightBack.setPower(drive + strafe - turn);
 
-        leftBack.setPower(drive + turn + strafe);
-        rightBack.setPower(drive - turn + strafe);
-        leftFront.setPower(drive + turn + strafe);
-        rightFront.setPower(drive - turn - strafe);
+        //testar
 
+        //subsistemasInferiores.goToReadyToIntake(); //wow, funciona
+        //subsistemasSuperiores.goToReadyToOuttake(); //wow, funciona tbm
 
     }
-
 
 }

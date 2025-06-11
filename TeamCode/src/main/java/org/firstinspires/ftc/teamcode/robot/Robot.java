@@ -8,29 +8,24 @@ import org.firstinspires.ftc.teamcode.common.roadrunner.MecanumDrive;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.BracoCopinho;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.LinearVertical;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.RotacaoCopinho;
+import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.SubsistemasSuperiores;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.BracoGarra;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.Garra;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.LinearHorizontal;
+import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.SubsistemasInferiores;
 
 import java.util.List;
 
 public class Robot {
     public MecanumDrive md;
-    public BracoGarra bracoGarra;
-    public Garra garra;
-    public LinearHorizontal linearHorizontal;
-    public RotacaoCopinho rotacaoCopinho;
-    public BracoCopinho bracoCopinho;
-    public LinearVertical linearVertical;
+    public SubsistemasSuperiores subsistemasSuperiores;
+    public SubsistemasInferiores subsistemasInferiores;
 
     public Robot(HardwareMap hardwareMap){
      md = new MecanumDrive(hardwareMap, new Pose2d(-36, 68, Math.toRadians(180)));//ver se ta certo
-     bracoGarra = new BracoGarra(hardwareMap);
-     garra = new Garra(hardwareMap);
-     linearHorizontal = new LinearHorizontal(hardwareMap);
-     rotacaoCopinho = new RotacaoCopinho(hardwareMap);
-     bracoCopinho = new BracoCopinho(hardwareMap);
-     linearVertical = new LinearVertical(hardwareMap);
+
+     subsistemasInferiores = new SubsistemasInferiores(hardwareMap);
+     subsistemasSuperiores = new SubsistemasSuperiores(hardwareMap);
 
         List<LynxModule> allHubs = hardwareMap.getAll(LynxModule.class);
         for (LynxModule hub : allHubs) {

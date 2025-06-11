@@ -115,7 +115,5 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
             )
         );
 
-
-
     }
 }

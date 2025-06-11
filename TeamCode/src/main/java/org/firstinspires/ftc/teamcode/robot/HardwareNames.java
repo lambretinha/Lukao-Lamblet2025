@@ -10,7 +10,6 @@ public final class HardwareNames {
              *                  Rodas Mortas                   *
              **************************************************/
                 par0 = "rightBack",
-                par1 = "rightFront",
                 perp = "leftFront",
 
             /**************************************************
@@ -43,14 +42,14 @@ public final class HardwareNames {
             *              Servos Intake e Outtake            *
             **************************************************/
 
-                aberturaGarra   = "porta0",
+                aberturaGarra   = "abrirGarra",
 
-                angulacaoGarra = "porta2",
+                angulacaoGarra = "angularGarra",
 
-                angulacaoBracoGarra = "porta1",
+                angulacaoBracoGarra = "angularBracoGarra",
 
-                angulacaoCopinho = "porta1c",
+                angulacaoCopinho = "angularCopinho",
 
-                angulacaoBracoCopinho = "porta3";
+                angulacaoBracoCopinho = "angularBracoCopinho";
 
 }

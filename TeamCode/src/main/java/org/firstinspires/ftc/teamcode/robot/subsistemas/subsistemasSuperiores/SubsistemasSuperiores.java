@@ -32,8 +32,8 @@ public class SubsistemasSuperiores {
 
             @Override
             public boolean run(@NonNull TelemetryPacket telemetryPacket) {
-                angulacaoBracoCopinho.servoBracoCopinho.setPosition(0.7);
-                rotacaoCopinho.servoRotacaoCopinho.setPosition(0.5);
+                angulacaoBracoCopinho.servoBracoCopinho.setPosition(0.871);
+                rotacaoCopinho.servoRotacaoCopinho.setPosition(0.611);
                 if (cronometro.time() >= tempoDeEspera){
                     return false;
                 }

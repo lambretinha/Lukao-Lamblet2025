@@ -14,6 +14,7 @@ public class SubsistemasInferiores {
     Garra abrirFecharGarra;
     BracoGarra angulacaoBracoGarra;
     Garra angulacaoGarra;
+    public static int target = 200;
 
     public SubsistemasInferiores(HardwareMap hardwareMap){
 
@@ -43,7 +44,7 @@ public class SubsistemasInferiores {
         };
         return new SequentialAction(
                 posicionaServos,
-                linearHorizontal.HorizontalGoTo(100)
+                linearHorizontal.HorizontalGoTo(target)
         );
     }
 
@@ -67,7 +68,7 @@ public class SubsistemasInferiores {
         };
         return new SequentialAction(
                 posicionaServos,
-                linearHorizontal.HorizontalGoTo(100)
+                linearHorizontal.HorizontalGoTo(target)
         );
     }
 

@@ -2,14 +2,14 @@ package org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores;
 
 import androidx.annotation.NonNull;
 
+import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
 import com.acmerobotics.roadrunner.SequentialAction;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-
+@Config
 public class SubsistemasSuperiores {
 
     BracoCopinho angulacaoBracoCopinho;
@@ -17,6 +17,9 @@ public class SubsistemasSuperiores {
     RotacaoCopinho rotacaoCopinho;
 
     LinearVertical linearVertical;
+    public static double tempoDeEsperaServoDoOuttake = 0.5;
+
+    public static int target = 1000;
 
     public SubsistemasSuperiores(HardwareMap hardwareMap){
         angulacaoBracoCopinho = new BracoCopinho(hardwareMap);
@@ -28,13 +31,12 @@ public class SubsistemasSuperiores {
     public Action goToReadyToOuttake(){
         Action posicionarServos = new Action() {
             ElapsedTime cronometro = new ElapsedTime();
-            double tempoDeEspera = 500;
 
             @Override
             public boolean run(@NonNull TelemetryPacket telemetryPacket) {
                 angulacaoBracoCopinho.servoBracoCopinho.setPosition(0.871);
                 rotacaoCopinho.servoRotacaoCopinho.setPosition(0.611);
-                if (cronometro.time() >= tempoDeEspera){
+                if (cronometro.time() >= tempoDeEsperaServoDoOuttake){
                     return false;
                 }
                 return true;
@@ -42,7 +44,7 @@ public class SubsistemasSuperiores {
         };
         return new SequentialAction(
                 posicionarServos,
-                linearVertical.ElevadorGoTo(200)
+                linearVertical.ElevadorGoTo(target)
         );
     }
 
@@ -64,7 +66,7 @@ public class SubsistemasSuperiores {
         };
         return new SequentialAction(
                 posicionarServos,
-                linearVertical.ElevadorGoTo(200)
+                linearVertical.ElevadorGoTo(target)
         );
     }
 }

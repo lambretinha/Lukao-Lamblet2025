@@ -1,11 +1,7 @@
 package org.firstinspires.ftc.teamcode.opModes;
 
-import androidx.annotation.NonNull;
-
 import com.acmerobotics.dashboard.config.Config;
-import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
-import com.acmerobotics.roadrunner.InstantAction;
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.SequentialAction;
 import com.acmerobotics.roadrunner.Vector2d;
@@ -14,8 +10,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.robot.Robot;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.SubsistemasSuperiores;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.SubsistemasInferiores;
 import org.firstinspires.ftc.teamcode.robot.vision.AprilTagDetectorID;
 
 @Config
@@ -25,8 +19,10 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
     Robot robot;
     AprilTagDetectorID limelight;
     public Action estaciona;
-    SubsistemasInferiores subsistemasInferiores;
-    SubsistemasSuperiores subsistemasSuperiores;
+
+    /**************************************************
+     *             Ations de Movimentação             *
+     **************************************************/
 
     public Action estacionamento1(){
         return robot.md.actionBuilder(new Pose2d(-36,68, Math.toRadians(180)))
@@ -71,6 +67,7 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
     }
 
     public Action pegarCone3(){
+
         return robot.md.actionBuilder(new Pose2d(-36,68, Math.toRadians(180)))
                 .build();
     }
@@ -78,6 +75,42 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
     public Action cone3(){
         return robot.md.actionBuilder(new Pose2d(-36,68, Math.toRadians(180)))
                 .build();
+    }
+
+    /**************************************************
+     *             Ations dos Subsistemas             *
+     **************************************************/
+
+    public Action outtakeCone1(){
+        return  robot.subsistemasSuperiores.goToReadyToOuttake();
+    }
+
+    public Action intakeCone2(){
+        return new SequentialAction(
+                robot.subsistemasInferiores.goToReadyToIntake(),
+                robot.subsistemasSuperiores.goToReadyToTranfer(),
+                robot.subsistemasInferiores.goToReadyToTransfer()
+        );
+    }
+
+    public Action outtakeCone2(){
+        return new SequentialAction(
+                robot.subsistemasSuperiores.goToReadyToOuttake()
+        );
+    }
+
+    public Action intakeCone3(){
+        return new SequentialAction(
+                robot.subsistemasInferiores.goToReadyToIntake(),
+                robot.subsistemasSuperiores.goToReadyToTranfer(),
+                robot.subsistemasInferiores.goToReadyToTransfer()
+        );
+    }
+
+    public Action outtakeCone3(){
+        return new SequentialAction(
+                robot.subsistemasSuperiores.goToReadyToOuttake()
+        );
     }
 
     @Override
@@ -91,7 +124,7 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
         robot.md.localizer.setPose(initialPose);
 
 
-        if (limelight.detectAprilTagId() == 6){
+        /*if (limelight.detectAprilTagId() == 6){
             estaciona = estacionamento1();
         }
         if (limelight.detectAprilTagId() == 7){
@@ -102,18 +135,25 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
         }
         if (limelight.detectAprilTagId() == 404){
             estaciona = estacionamento2();
-        }
+        }*/
 
         Actions.runBlocking(
             new SequentialAction(
-                    cone1(),
+                    /*cone1(),
+                    outtakeCone1(),
                     pegarCone2(),
+                    intakeCone2(),
                     cone2(),
+                    outtakeCone2(),
                     pegarCone3(),
+                    intakeCone3(),
                     cone3(),
-                    estaciona
+                    outtakeCone3(),
+                    estaciona*/
+                    outtakeCone1()
             )
         );
+        
 
     }
 }

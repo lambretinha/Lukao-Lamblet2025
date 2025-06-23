@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import org.firstinspires.ftc.robotcore.external.navigation.CurrentUnit;
 import org.firstinspires.ftc.teamcode.robot.HardwareNames;
 @Config
 @TeleOp
@@ -28,8 +29,7 @@ public class PIDFtest extends OpMode {
         controller = new PIDController(p, i, d);
         telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
 
-        motorLinear = hardwareMap.get(DcMotorEx.class, HardwareNames.vertical);
-        motorLinear.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorLinear = hardwareMap.get(DcMotorEx.class, HardwareNames.horizontal);
     }
 
     @Override
@@ -43,8 +43,18 @@ public class PIDFtest extends OpMode {
 
         motorLinear.setPower(power);
 
+        if (gamepad1.dpad_up){
+            target = target + 30;
+        }
+
+        if (gamepad1.dpad_down){
+            target = target - 30;
+        }
+
+
         telemetry.addData("pos", motorLinear.getCurrentPosition());
         telemetry.addData("target", target);
+        telemetry.addData("corrente", motorLinear.getCurrent(CurrentUnit.AMPS));
         telemetry.update();
     }
 }

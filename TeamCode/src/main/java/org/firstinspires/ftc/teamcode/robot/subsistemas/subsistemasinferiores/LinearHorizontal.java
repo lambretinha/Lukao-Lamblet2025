@@ -13,14 +13,13 @@ import org.firstinspires.ftc.teamcode.robot.HardwareNames;
 public class LinearHorizontal {
 
     DcMotorEx motorHorizontal;
-    public static double p, i, d, f;
-    public static int targetPosition = 0;
+    public static double p = 0.02, i = 0.002, d = 0, f = 0.01;
     PIDController controller = new PIDController(p, i, d);
     public  LinearHorizontal(HardwareMap hardwareMap){
         motorHorizontal = hardwareMap.get(DcMotorEx.class, HardwareNames.horizontal);
     }
 
-    public double PIDF(){
+    public double PIDF(int targetPosition){
         double kp = p;
 
         int linearpos = motorHorizontal.getCurrentPosition();
@@ -42,7 +41,7 @@ public class LinearHorizontal {
 
             @Override
             public boolean run(@NonNull TelemetryPacket telemetryPacket) {
-                PIDF();
+                PIDF(target);
                 currentPosition = motorHorizontal.getCurrentPosition();
                 condicaoParadaChegouNoAlvoPID = currentPosition >= target - 30 && currentPosition <= target + 30;
                 if(condicaoParadaChegouNoAlvoPID){

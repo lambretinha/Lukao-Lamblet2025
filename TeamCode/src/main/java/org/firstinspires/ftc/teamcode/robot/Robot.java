@@ -5,14 +5,8 @@ import com.qualcomm.hardware.lynx.LynxModule;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.common.roadrunner.MecanumDrive;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.BracoCopinho;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.LinearVertical;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.RotacaoCopinho;
 import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasSuperiores.SubsistemasSuperiores;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.BracoGarra;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.Garra;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.LinearHorizontal;
-import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores.SubsistemasInferiores;
+import org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasInferiores.SubsistemasInferiores;
 
 import java.util.List;
 

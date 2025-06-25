@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasinferiores;
+package org.firstinspires.ftc.teamcode.robot.subsistemas.subsistemasInferiores;
 
 import androidx.annotation.NonNull;
 
@@ -37,13 +37,13 @@ public class LinearHorizontal {
         return new Action() {
             int currentPosition = motorHorizontal.getCurrentPosition();
 
-            boolean condicaoParadaChegouNoAlvoPID = currentPosition >= target - 30 && currentPosition <= target + 30;
+            boolean condicaoParadaChegouNoAlvoPID = currentPosition >= target - 10 && currentPosition <= target + 10;
 
             @Override
             public boolean run(@NonNull TelemetryPacket telemetryPacket) {
                 PIDF(target);
                 currentPosition = motorHorizontal.getCurrentPosition();
-                condicaoParadaChegouNoAlvoPID = currentPosition >= target - 30 && currentPosition <= target + 30;
+                condicaoParadaChegouNoAlvoPID = currentPosition >= target - 10 && currentPosition <= target + 10;
                 if(condicaoParadaChegouNoAlvoPID){
                     return false;
                 }

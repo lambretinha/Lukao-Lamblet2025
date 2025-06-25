@@ -67,7 +67,6 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
     }
 
     public Action pegarCone3(){
-
         return robot.md.actionBuilder(new Pose2d(-36,68, Math.toRadians(180)))
                 .build();
     }
@@ -87,30 +86,34 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
 
     public Action intakeCone2(){
         return new SequentialAction(
-                robot.subsistemasInferiores.goToReadyToIntake(),
+                robot.subsistemasInferiores.goToReadyToIntakeCone2Autonomo(),
                 robot.subsistemasSuperiores.goToReadyToTranfer(),
                 robot.subsistemasInferiores.goToReadyToTransfer()
         );
     }
 
     public Action outtakeCone2(){
-        return new SequentialAction(
-                robot.subsistemasSuperiores.goToReadyToOuttake()
-        );
+        return robot.subsistemasSuperiores.goToReadyToOuttake();
     }
 
     public Action intakeCone3(){
         return new SequentialAction(
-                robot.subsistemasInferiores.goToReadyToIntake(),
+                robot.subsistemasInferiores.goToReadyToIntakeCone3Autonomo(),
                 robot.subsistemasSuperiores.goToReadyToTranfer(),
                 robot.subsistemasInferiores.goToReadyToTransfer()
         );
     }
 
     public Action outtakeCone3(){
-        return new SequentialAction(
-                robot.subsistemasSuperiores.goToReadyToOuttake()
-        );
+        return robot.subsistemasSuperiores.goToReadyToOuttake();
+    }
+
+    /**************************************************
+     *                 Ations de Teste                *
+     **************************************************/
+
+    public Action testezinho(){
+        return robot.subsistemasSuperiores.goToReadyToOuttake();
     }
 
     @Override
@@ -122,7 +125,6 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
         waitForStart();
 
         robot.md.localizer.setPose(initialPose);
-
 
         /*if (limelight.detectAprilTagId() == 6){
             estaciona = estacionamento1();
@@ -148,9 +150,9 @@ public class AutoDaBarcaDoInferno extends LinearOpMode {
                     pegarCone3(),
                     intakeCone3(),
                     cone3(),
-                    outtakeCone3(),
-                    estaciona*/
-                    outtakeCone1()
+                    outtakeCone3()*/
+                    testezinho()
+
             )
         );
         
